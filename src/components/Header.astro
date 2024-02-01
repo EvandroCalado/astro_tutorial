@@ -1,0 +1,35 @@
+---
+import Button from './Button.astro';
+---
+
+<header class="h-12 md:h-20 px-8 md:px-12 xl:px-28 flex gap-12 items-center">
+  <a href="/" class="text-3xl font-bold">ACME</a>
+
+  <button id="navButton" class="fixed top-0 right-0 p-4 z-20 lg:hidden">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+  </button>
+
+  <div id="navMenu" class="bg-light dark:bg-dark dark:bg-opacity-95 bg-opacity-95 text-center overflow-hidden transition-all duration-500 flex gap-8 items-center justify-center w-full fixed top-0 left-0 z-10 h-0 opacity-0 lg:relative flex-col lg:flex-row lg:h-full lg:opacity-100">
+
+    <nav class="flex gap-8 flex-col lg:flex-row lg:flex-1">
+      <a href="#" class="hover:opacity-70 duration-150">Home</a>
+      <a href="#" class="hover:opacity-70 duration-150">Company</a>
+      <a href="#" class="hover:opacity-70 duration-150">Products</a>
+      <a href="#" class="hover:opacity-70 duration-150">Contact Us</a>
+    </nav>
+
+    <Button>Shop Now</Button>
+  </div>
+</header>
+
+<script>
+  const navButton = document.querySelector('#navButton');
+  const navMenu = document.querySelector('#navMenu');
+
+    navButton?.addEventListener('click', () => {
+      navMenu?.classList.toggle('h-0');
+      navMenu?.classList.toggle('h-full');
+      navMenu?.classList.toggle('opacity-100');
+    })
+
+</script>
